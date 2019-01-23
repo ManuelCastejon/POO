@@ -27,12 +27,17 @@ if(isset($_GET['seccion']))
         //  ejemplo .: index.php?seccion=articulo&id=33
             if (isset($_GET['id'])) {
                 // Consigo los datos del objeto con ID
+                echo "Detalle del siguiente Artículo:<br>";
                 $articulo = $articulosArray[$_GET['id']];
                 // muestro los datos del artículo ID
                 $articulo->getNombre();
+                ?><br> <?php
                 $articulo->getTexto();
+                ?><br> <?php
                 $articulo->getAutor();
+                ?><br> <?php
                 $articulo->getFecha();
+                ?><br> <?php
 
             } else {
                 # muestro el listado de todos los artículos
