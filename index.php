@@ -36,7 +36,22 @@ if(isset($_GET['seccion']))
 
             } else {
                 # muestro el listado de todos los artículos
-                    echo "Listado de todos los artículos";
+                    echo "Listado de todos los artículos<br>";
+                    
+                    foreach ($articulosArray as $clave => $objeto) {
+                        # code...
+                        ?>
+                        <a href=index.php?seccion=articulo&id=<?php echo $clave ?> > <?php echo $clave ?></a>
+                        <?php
+                        $objeto->getNombre();
+                        $objeto->getTexto();
+                        $objeto->getAutor();
+                        $objeto->getFecha();
+                        ?>
+                        <br>
+                        <?php
+
+                    }
             }
             
 

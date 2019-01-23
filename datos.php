@@ -17,17 +17,21 @@
     // carga del array con todos los datos de los artículos
 
     $articulosArray = array($a1,$a2,$a3,$a4,$a5);
-   
 
 
 
 
 
 
-
-
-
+    // SELECT * from Usuarios
     // carga de datos de Usuario
+    $u1 = new Usuario("");
+    $u2 = new Usuario("");
+    $u3 = new Usuario("");
+    $u4 = new Usuario("");
+    $u5 = new Usuario("");
+
+    $UsuariosArray = array($u1,$u2,$u3,$u4,$u5);
 
     // carga de datos de páginas
 
