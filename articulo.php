@@ -8,6 +8,7 @@ class Articulo
     public $texto;
     public $autor;
     public $fecha;
+    public $comentarios;
     
     // constructores
     // $mi_articulo = new Articulo("Hola Mundo", "Texto alal al al a", "Manuel", "22/01/2019");
@@ -21,12 +22,24 @@ class Articulo
 
 
     // métodos - funciones
-    public function getTitulo(){
+    public function getNombre(){
         echo $this->titulo;
+    }
+    // métodos - funciones
+    public function getTexto(){
+        echo $this->texto;
+    }
+    // métodos - funciones
+    public function getAutor(){
+        echo $this->autor;
+    }
+    // métodos - funciones
+    public function getFecha(){
+        echo $this->fecha;
     }
 
     // métodos - funciones
-    public function setTitulo($nom){
+    public function setNombre($nom){
         $this->titulo = $nom;
     }
 

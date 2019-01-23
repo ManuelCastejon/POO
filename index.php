@@ -1,10 +1,13 @@
 <?php
 session_start();
+// incluir datos ( simulamos una conexión a SQL)
+include ('datos.php');
+ 
 // incluir las clases
-include ('articulo.php');
-include ('usuario.php');
-include ('categoria.php');
-include ('paginas.php');
+require_once ('articulo.php');
+require_once ('usuario.php');
+require_once ('categoria.php');
+require_once ('paginas.php');
 
 // incluir de la plantilla
 include ('plantilla/head.php');
@@ -21,29 +24,38 @@ if(isset($_GET['seccion']))
 
     switch ($url) {
         case 'articulo':
-            $mi_articulo = new Articulo("Titulo del artículo al alla l a", "Texto alal al al a", "Manuel", "22/01/2019");
-            $mi_articulo->getTitulo();
-            $_SESSION['titulo'] = "Artículos";
+        //  ejemplo .: index.php?seccion=articulo&id=33
+            if (isset($_GET['id'])) {
+                // Consigo los datos del objeto con ID
+                $articulo = $articulosArray[$_GET['id']];
+                // muestro los datos del artículo ID
+                $articulo->getNombre();
+                $articulo->getTexto();
+                $articulo->getAutor();
+                $articulo->getFecha();
+
+            } else {
+                # muestro el listado de todos los artículos
+                    echo "Listado de todos los artículos";
+            }
+            
+
+            $_SESSION['titulo'] = "Articulo";
+
             break;
         case 'usuario':
             # code...
-            $mi_usuario = new Usuario();
-            $mi_usuario->setNombre("Pepe");
-            $mi_usuario->getNombre();
+            
             $_SESSION['titulo'] = "Usuarios";
             break;
         case 'categoria':
             # code...
-            $mi_categoria = new Categoria();
-            $mi_categoria->setNombre("Coches");
-            $mi_categoria->getNombre();
+             
             $_SESSION['titulo'] = "Categoría";
             break;
         case 'pagina':
             # code...
-            $mi_pagina = new Pagina();
-            $mi_pagina->setNombre("Contacto");
-            $mi_pagina->getNombre();
+            
             $_SESSION['titulo'] = "Páginas";
 
             break;   
